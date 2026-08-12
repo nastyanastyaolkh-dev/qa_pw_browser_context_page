@@ -13,11 +13,7 @@ test.beforeEach(async ({ page1, page2, user1, user2, articleWithoutTags }) => {
 });
 
 // eslint-disable-next-line max-len
-test('User can not see new articles in Your Feed after unfollowing other users profile', async ({
-  page2,
-  user1,
-  articleWithoutTags,
-}) => {
+test('User can not see new articles in Your Feed after unfollowing other users profile', async ({ page2, user1, articleWithoutTags }) => {
   const viewArticlePage = new ViewArticlePage(page2);
   const homePage = new HomePage(page2);
 

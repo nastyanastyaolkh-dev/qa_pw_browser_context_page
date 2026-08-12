@@ -3,6 +3,7 @@ import { ViewArticlePage } from '../../pages/article/ViewArticlePage';
 import { EditArticlePage } from '../../pages/article/EditArticlePage';
 
 export async function editArticle(page, article) {
+
   article['url'] = await test.step(`Edit an article`, async () => {
 
     const viewArticlePage = new ViewArticlePage(page);

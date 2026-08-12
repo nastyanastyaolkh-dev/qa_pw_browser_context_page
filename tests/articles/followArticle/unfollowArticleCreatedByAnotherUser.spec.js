@@ -16,11 +16,7 @@ test.beforeEach(async ({ page1, page2, user1, user2, articleWithoutTags }) => {
   
 });
 
-test('Unfollow an article created by another user', async ({
-  page2,
-  user1,
-  articleWithoutTags,
-}) => {
+test('Unfollow an article created by another user', async ({ page2, user1, articleWithoutTags }) => {
   const viewArticlePage = new ViewArticlePage(page2);
 
   await viewArticlePage.open(articleWithoutTags.url);
