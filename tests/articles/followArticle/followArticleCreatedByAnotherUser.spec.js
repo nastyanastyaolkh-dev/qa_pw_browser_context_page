@@ -8,9 +8,10 @@ test.beforeEach(async ({ page1, page2, user1, user2, articleWithoutTags }) => {
   await signUpUser(page2, user2);
 
   await createArticle(page1, articleWithoutTags);
+
 });
 
-test('View an article created by another user', async ({
+test('Follow an article created by another user', async ({
   page2,
   user1,
   articleWithoutTags,
@@ -19,7 +20,8 @@ test('View an article created by another user', async ({
 
   await viewArticlePage.open(articleWithoutTags.url);
 
-  await viewArticlePage.assertArticleTitleIsVisible(articleWithoutTags.title);
-  await viewArticlePage.assertArticleTextIsVisible(articleWithoutTags.text);
-  await viewArticlePage.assertArticleAuthorNameIsVisible(user1.username);
+  await viewArticlePage.assertFollowButtonIsVisible(user1.username);
+  await viewArticlePage.clickFollowButton(user1.username);
+  await viewArticlePage.assertUnfollowButtonIsVisible(user1.username);
+
 });
